@@ -42,13 +42,13 @@ class Order(Base):
     __tablename__ = "orders"
     id = Column(Integer, primary_key=True)
     client_id = Column(Integer, ForeignKey("clients.id"))
-    service = Column(String)           # название услуги
+    service = Column(String)
     amount = Column(Float, default=0.0)
-    status = Column(String, default="new")  # new, in_progress, completed, cancelled
+    status = Column(String, default="new")
     created_at = Column(DateTime, default=datetime.utcnow)
     deadline = Column(DateTime, nullable=True)
     created_by_id = Column(Integer, ForeignKey("users.id"))
-    # отношения
+
     client = relationship("Client", back_populates="orders")
     created_by = relationship("User", foreign_keys=[created_by_id])
 

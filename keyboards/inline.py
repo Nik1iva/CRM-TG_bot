@@ -21,6 +21,7 @@ def clients_keyboard():
 def orders_keyboard():
     kb = [
         [InlineKeyboardButton(text="➕ Создать заказ", callback_data="add_order")],
+        [InlineKeyboardButton(text="📋 Список заказов", callback_data="list_orders")],
         [InlineKeyboardButton(text="◀️ Назад", callback_data="back_to_main")]
     ]
     return InlineKeyboardMarkup(inline_keyboard=kb)
